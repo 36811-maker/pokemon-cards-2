@@ -1,0 +1,437 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    overflow-x:hidden;
+    background:linear-gradient(135deg,#0d47a1,#1565c0,#1976d2,#42a5f5);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    position:relative;
+}
+
+/* Fundo */
+
+.background{
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle at top,#ffcb05 0%,transparent 30%),
+    radial-gradient(circle at bottom,#e53935 0%,transparent 30%);
+    z-index:-3;
+}
+
+/* Pokébolas */
+
+.pokebolas span{
+    position:absolute;
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    background:
+    linear-gradient(to bottom,#e53935 50%,#fff 50%);
+    border:5px solid #222;
+    opacity:.12;
+    animation:float 12s infinite ease-in-out;
+}
+
+.pokebolas span::before{
+    content:"";
+    position:absolute;
+    width:18px;
+    height:18px;
+    background:#fff;
+    border:4px solid #222;
+    border-radius:50%;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+
+.pokebolas span:nth-child(1){
+    top:8%;
+    left:6%;
+}
+
+.pokebolas span:nth-child(2){
+    right:8%;
+    top:15%;
+}
+
+.pokebolas span:nth-child(3){
+    bottom:15%;
+    left:10%;
+}
+
+.pokebolas span:nth-child(4){
+    bottom:8%;
+    right:12%;
+}
+
+.pokebolas span:nth-child(5){
+    top:45%;
+    left:2%;
+}
+
+.pokebolas span:nth-child(6){
+    top:55%;
+    right:2%;
+}
+
+@keyframes float{
+
+0%,100%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-20px);
+}
+
+}
+
+/* Cabeçalho */
+
+header{
+    text-align:center;
+    margin-top:35px;
+}
+
+.logo{
+    width:280px;
+    margin-bottom:15px;
+}
+
+header h1{
+    color:#ffcb05;
+    font-size:42px;
+    text-shadow:3px 3px #1a237e;
+}
+
+header p{
+    color:white;
+    margin-top:10px;
+    font-size:18px;
+}
+
+/* Cards */
+
+.container{
+
+    width:90%;
+    max-width:1300px;
+
+    display:flex;
+    justify-content:center;
+    gap:35px;
+    flex-wrap:wrap;
+
+    margin:60px auto;
+
+}
+
+.card{
+
+    width:330px;
+    padding:25px;
+
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(15px);
+
+    border:2px solid rgba(255,255,255,.2);
+
+    border-radius:25px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    box-shadow:0 20px 35px rgba(0,0,0,.35);
+
+    transition:.45s;
+
+    transform-style:preserve-3d;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.card::before{
+
+content:"";
+
+position:absolute;
+
+width:180%;
+height:180%;
+
+background:linear-gradient(120deg,
+transparent,
+rgba(255,255,255,.35),
+transparent);
+
+transform:rotate(25deg);
+
+left:-180%;
+top:-50%;
+
+transition:.7s;
+
+}
+
+.card:hover::before{
+
+left:120%;
+
+}
+
+.card:hover{
+
+transform:
+perspective(900px)
+rotateX(8deg)
+rotateY(-8deg)
+translateY(-15px)
+scale(1.04);
+
+box-shadow:0 30px 50px rgba(0,0,0,.5);
+
+}
+
+.card-img{
+
+width:230px;
+height:230px;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+margin-bottom:25px;
+
+}
+
+.card-img img{
+
+width:100%;
+
+object-fit:contain;
+
+transition:.5s;
+
+filter:drop-shadow(0 12px 15px rgba(0,0,0,.4));
+
+}
+
+.card:hover img{
+
+transform:scale(1.12) rotate(-4deg);
+
+}
+
+/* Botão título */
+
+.titulo{
+
+width:220px;
+
+padding:15px;
+
+border:none;
+
+border-radius:40px;
+
+background:#ffcb05;
+
+color:#1a237e;
+
+font-size:20px;
+
+font-weight:700;
+
+margin-bottom:20px;
+
+cursor:pointer;
+
+transition:.35s;
+
+}
+
+.titulo:hover{
+
+background:#1a237e;
+
+color:white;
+
+transform:translateY(-3px);
+
+}
+
+/* Linha */
+
+.linha{
+
+width:90%;
+
+height:2px;
+
+background:rgba(255,255,255,.4);
+
+margin-bottom:20px;
+
+}
+
+/* Botões */
+
+.botoes{
+
+display:flex;
+
+gap:15px;
+
+}
+
+.btn{
+
+flex:1;
+
+padding:12px;
+
+border:none;
+
+border-radius:30px;
+
+cursor:pointer;
+
+font-size:15px;
+
+font-weight:600;
+
+transition:.35s;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+gap:8px;
+
+}
+
+.saber{
+
+background:#e53935;
+
+color:white;
+
+}
+
+.contato{
+
+background:#1565c0;
+
+color:white;
+
+}
+
+.saber:hover{
+
+background:#ffcb05;
+
+color:#222;
+
+transform:translateY(-4px);
+
+box-shadow:0 8px 20px rgba(255,203,5,.5);
+
+}
+
+.contato:hover{
+
+background:#43a047;
+
+transform:translateY(-4px);
+
+box-shadow:0 8px 20px rgba(67,160,71,.5);
+
+}
+
+/* Rodapé */
+
+footer{
+
+margin:30px 0;
+
+color:white;
+
+font-size:15px;
+
+opacity:.9;
+
+}
+
+/* Responsivo */
+
+@media(max-width:1100px){
+
+.container{
+
+flex-direction:column;
+
+align-items:center;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.logo{
+
+width:220px;
+
+}
+
+header h1{
+
+font-size:32px;
+
+}
+
+.card{
+
+width:92%;
+
+}
+
+.card-img{
+
+width:180px;
+height:180px;
+
+}
+
+.botoes{
+
+flex-direction:column;
+
+width:100%;
+
+}
+
+.btn{
+
+width:100%;
+
+}
+
+}
